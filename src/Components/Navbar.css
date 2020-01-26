@@ -1,6 +1,6 @@
 .navbar-title {
     color: white;
-    font-family: archivo black;
+    font-family: archivo black !important;
 }
 
 .navbar-title:hover {
