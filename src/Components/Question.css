@@ -1,0 +1,20 @@
+.question-options {
+    margin: 1rem 0;
+}
+
+.input-text {
+    padding-right: 0.5rem;
+}
+
+.question-text {
+    text-align: left;
+    margin-top: 1rem;
+    padding-left: 0.5rem;
+    font-weight: bold;
+}
+
+.alert {
+    margin: 0.4rem auto;
+    width: fit-content;
+    padding: 0.5rem;
+}

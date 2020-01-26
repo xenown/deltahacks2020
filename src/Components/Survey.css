@@ -1,0 +1,51 @@
+.survey-header {
+    font-weight: bold;
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+.nav-tabs {
+    border-bottom: 0;
+    margin: auto
+}
+
+.nav-link {
+    background-color: #545b62;
+    border-color: #4e555b;
+    color: white;
+    margin: 0.5rem 0.5rem;
+    border-radius: 3rem !important;
+}
+
+.nav-link:hover, .nav-link.active:hover {
+    background-color: #0063cc;
+    color: white;
+}
+
+.survey-type {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.survey-container {
+    border: 2px grey;
+    border-radius: 1rem; 
+}
+
+.tab-content {
+    width: 70%;
+    margin: auto;
+}
+
+.card {
+    width: 60%; 
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background-color: #e8f0fe;
+}
+
+.submit-form {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
