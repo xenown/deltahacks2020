@@ -7,16 +7,13 @@ import CommentForm from './CommentForm'
 class Survey extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            company: "The Coca Cola Company"
-        }
     }
 
     render() {
         return (
             <div>
                 <div className="survey-header">
-                    Submit an Ethics Survey on {this.state.company}
+                    Submit an Ethics Survey on {this.props.companySelected}
                 </div>
                 <div className="survey-container">
                     <div className="card">
@@ -33,16 +30,16 @@ class Survey extends React.Component {
                     <div className="tab-content">
                         <div id="workers" className="tab-pane fade in active">
                             <h3>Worker's Rights Survey</h3>
-                            <WorkerForm companyName="Disney" />
+                            <WorkerForm companyName={this.props.companySelected} />
                         </div>
                         <div id="environment" className="tab-pane fade">
                             <h3>Environmental Impact Survey</h3>
-                            <EnviroForm companyName="Disney" />
+                            <EnviroForm companyName={this.props.companySelected} />
                         </div>
                         <div id="comments" className="tab-pane fade">
                             <h3>Comments</h3>
                             <p>Have any ethical concerns not convered by our other surveys? Leave a comment!</p>
-                            <CommentForm companyName="Disney" />
+                            <CommentForm companyName={this.props.companySelected} />
                         </div>
                     </div>
                 </div>
