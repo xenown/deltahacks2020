@@ -15,8 +15,8 @@ export default function App() {
   const [companySelected, setCompanySelected] = useState("");
   const GET_LISTINGS_URL = "";
 
-  function createData(name, score, industry, score2, protein) {
-    return { name, score, industry, score2, protein };
+  function createData(name, score, industry, score2, score3) {
+    return { name, score, industry, score2, score3 };
   }
 
   useEffect(() => {

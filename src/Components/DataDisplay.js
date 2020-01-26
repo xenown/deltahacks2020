@@ -59,7 +59,7 @@ export default function DataDisplay() {
 
   return (
     <div className="datadisplay">
-      {/* <Card className={classes.card}>
+      <Card className={classes.card}>
         <CardHeader className={classes.title}>
           Test
         </CardHeader>
@@ -72,8 +72,8 @@ export default function DataDisplay() {
             data={getEthicsScore()}>
           </Chart>
         </CardContent>
-      </Card> */}
-      <OutlinedCard/>
+      </Card>
+      {/* <OutlinedCard/> */}
     </div >
   );
 }

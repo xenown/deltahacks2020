@@ -10,6 +10,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
+import { Button } from '@material-ui/core';
 
 
 function desc(a, b, orderBy) {
@@ -39,9 +40,10 @@ function getSorting(order, orderBy) {
 const headCells = [
     { id: 'name', numeric: false, disablePadding: false, label: 'Company' },
     { id: 'score', numeric: true, disablePadding: false, label: 'Ethics Score' },
-    { id: 'industry', numeric: true, disablePadding: false, label: 'Industry' },
     { id: 'score2', numeric: true, disablePadding: false, label: 'Social Score' },
-    { id: 'protein', numeric: true, disablePadding: false, label: 'Score again!' },
+    { id: 'score3', numeric: true, disablePadding: false, label: 'Environmental Score' },
+    { id: 'industry', numeric: true, disablePadding: false, label: 'Industry' },
+    { id: 'review', numeric: true, disablePadding: false, label: 'Review' }
 ];
 
 function EnhancedTableHead(props) {
@@ -159,20 +161,31 @@ export default function Search(props) {
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={event => handleClick(event, row.name)}
                                             role="checkbox"
                                             tabIndex={-1}
                                             key={row.name}
-                                            to={`/search/${row.name}`}
-                                            component={Link}
                                         >
-                                            <TableCell component="th" id={index} scope="row" >
+                                            <TableCell 
+                                                component="th"
+                                                id={index} 
+                                                scope="row" 
+                                                to={`/search/${row.name}`}
+                                                component={Link}>
                                                 {row.name}
                                             </TableCell>
                                             <TableCell align="right">{row.score}</TableCell>
-                                            <TableCell align="right">{row.industry}</TableCell>
                                             <TableCell align="right">{row.score2}</TableCell>
-                                            <TableCell align="right">{row.protein}</TableCell>
+                                            <TableCell align="right">{row.score3}</TableCell>
+                                            <TableCell align="right">{row.industry}</TableCell>
+                                            <TableCell align="right">
+                                                <Button
+                                                    onClick={event => handleClick(event, row.name)}
+                                                    variant="contained"
+                                                    to={`/survey`}
+                                                    component={Link}>
+                                                    Review
+                                                </Button>
+                                            </TableCell>
                                         </TableRow>
                                     );
                                 })}
