@@ -6,10 +6,6 @@ import CardHeader from "@material-ui/core/CardHeader"
 import { makeStyles } from "@material-ui/core/styles"
 import './DataDisplay.css'
 
-import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
 const useStyles = makeStyles({
   card: {
     marginLeft: "1%",
