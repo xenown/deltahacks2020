@@ -13,6 +13,7 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [listings, setListings] = useState([]);
   const [companySelected, setCompanySelected] = useState("");
+  const [detailOpen, setDetailOpen] = useState(false);
   const GET_LISTINGS_URL = "";
 
   function createData(name, score, industry, score2, score3) {
@@ -43,7 +44,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <PrimarySearchAppBar setSearch={setSearch} searchbarOpen={searchbarOpen} />
+      <PrimarySearchAppBar detailOpen={detailOpen} companySelected={companySelected} setSearch={setSearch} searchbarOpen={searchbarOpen} />
       <Switch>
         <Route exact path="/">
           <Land setSearchbar={setSearchbar} />
@@ -57,7 +58,7 @@ export default function App() {
               setCompanySelected={setCompanySelected}
               setSearchbar={setSearchbar} />
             :
-            <DataDisplay setSearchbar={setSearchbar} companySelected={companySelected} />}
+            <DataDisplay setDetailOpen={setDetailOpen} />}
         </Route>
         <Route exact path={`/search`} >
           <Search

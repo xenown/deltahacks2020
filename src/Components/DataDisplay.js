@@ -9,9 +9,9 @@ import './DataDisplay.css'
 
 const useStyles = makeStyles({
   card: {
-    marginLeft: "1%",
-    marginTop: "1%",
-    maxWidth: "50%"
+    float: "left",
+    margin: "1%",
+    maxWidth: "48%"
   },
   bullet: {
     display: 'inline-block',
@@ -27,15 +27,20 @@ const useStyles = makeStyles({
   },
 });
 
-export default function DataDisplay() {
+export default function DataDisplay(props) {
+  const { setDetailOpen } = props;
   const SINGLE_COMPANY_FETCH = "";
   const [data, setData] = useState({});
   const classes = useStyles();
 
   useEffect(() => {
+    setDetailOpen(true);
     fetch(SINGLE_COMPANY_FETCH)
       .then(res => res.json())
       .then(data => setData(data));
+    return (() => {
+      setDetailOpen(false);
+    })
   })
 
   const getEthicsScore = () => {
@@ -70,7 +75,7 @@ export default function DataDisplay() {
   const getQ2 = () => {
     return [
       ["My workplace promotes recycling programs and initiatives.", "Response"],
-      ["Strongly Disagree", 1],
+      ["Strongly Disagree", 239],
       ["Disagree", 1000],
       ["Indifferent", 532],
       ["Agree", 610],
@@ -98,6 +103,9 @@ export default function DataDisplay() {
 
   return (
     <div className="datadisplay">
+      <div className="graph-header">
+        View Trends for this Company over Time
+      </div>
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textprimary" gutterBottom>
@@ -127,6 +135,9 @@ export default function DataDisplay() {
           />
         </CardContent>
       </Card>
+      <div className="graph-header">
+        Analyze Individual Question Responses
+      </div>
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textprimary" gutterBottom>

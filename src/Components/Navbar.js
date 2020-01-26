@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function PrimarySearchAppBar(props) {
-  const { setSearch, searchbarOpen } = props;
+  const { detailOpen, companySelected, setSearch, searchbarOpen } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -154,6 +154,10 @@ export default function PrimarySearchAppBar(props) {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div> : <div />}
+            <div className="header-company">
+              {detailOpen && "|"}
+              <span className="header-company" > {detailOpen && companySelected} </span>
+            </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             {!searchbarOpen &&
