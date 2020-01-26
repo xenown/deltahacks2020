@@ -76,6 +76,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function PrimarySearchAppBar(props) {
+  const { setSearch, searchbarOpen } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -133,7 +134,7 @@ export default function PrimarySearchAppBar(props) {
           <Typography className={classes.title} variant="h6" noWrap>
             Scrutable!
           </Typography>
-          {props.searchbarOpen ?
+          {searchbarOpen ?
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -145,22 +146,15 @@ export default function PrimarySearchAppBar(props) {
                   input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
-                onChange={(e) => props.setText(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)}
               />
             </div> : <div />}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <Button variant="contained"
-              color="Default"
               to={"/search"}
               component={Link}>
               Search
-            </Button>
-            <Button variant="contained"
-              color="Default"
-              to={"/survey"}
-              component={Link}>
-              Survey
             </Button>
           </div>
           <div className={classes.sectionMobile}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import PrimarySearchAppBar from './Navbar.js'
 import Land from './Land.js'
 import Search from './Search.js'
@@ -10,7 +10,7 @@ import './App.css';
 
 export default function App() {
   const [searchbarOpen, setSearchbar] = useState(false);
-  const [input, setInput] = useState("");
+  const [search, setSearch] = useState("");
   const [listings, setListings] = useState([]);
   const [companySelected, setCompanySelected] = useState("");
   const GET_LISTINGS_URL = "";
@@ -43,24 +43,26 @@ export default function App() {
 
   return (
     <div className="App">
-      <PrimarySearchAppBar text={input} setText={setInput} searchbarOpen={searchbarOpen} setSearchbar={setSearchbar} />
+      <PrimarySearchAppBar setSearch={setSearch} searchbarOpen={searchbarOpen} />
       <Switch>
         <Route exact path="/">
           <Land setSearchbar={setSearchbar} />
         </Route>
-        <Route exact path="/search" >
-          <Search
-            listings={listings}
-            search={input}
-            companySelected={companySelected}
-            setCompanySelected={setCompanySelected}
-            setSearchbar={setSearchbar} />
-        </Route>
         <Route exact path={`/search/${companySelected}`} >
-          <DataDisplay setSearchbar={setSearchbar} companySelected={companySelected} />
+          {companySelected === "" ?
+            <Search
+              listings={listings}
+              search={search}
+              setCompanySelected={setCompanySelected}
+              setSearchbar={setSearchbar} />
+            :
+            <DataDisplay setSearchbar={setSearchbar} companySelected={companySelected} />}
         </Route>
         <Route exact path="/survey" >
           <Survey setSearchbar={setSearchbar} companySelected={companySelected} />
+        </Route>
+        <Route path="/" >
+          <Redirect to="/"/>
         </Route>
       </Switch>
     </div>
