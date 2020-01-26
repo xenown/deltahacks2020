@@ -156,10 +156,12 @@ export default function PrimarySearchAppBar(props) {
             </div> : <div />}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            {!searchbarOpen && <Button variant="contained"
-              to="/search"
-              component={Link}>
-              Search
+            {!searchbarOpen &&
+              <Button variant="contained"
+                onClick={() => setSearch("")}
+                to="/search"
+                component={Link}>
+                Search
             </Button>}
           </div>
           <div className={classes.sectionMobile}>

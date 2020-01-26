@@ -112,7 +112,7 @@ export default function Search(props) {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('score');
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(15);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
     useEffect(() => {
         setSearchbar(true);
@@ -169,7 +169,8 @@ export default function Search(props) {
                                             <TableCell 
                                                 component="th"
                                                 id={index} 
-                                                scope="row" 
+                                                scope="row"
+                                                onClick={event => handleClick(event, row.name)}
                                                 to={`/search/${row.name}`}
                                                 component={Link}>
                                                 {row.name}
@@ -194,7 +195,7 @@ export default function Search(props) {
                     </Table>
                 </TableContainer>
                 <TablePagination
-                    rowsPerPageOptions={[10, 15]}
+                    rowsPerPageOptions={[10, 5]}
                     component="div"
                     count={listings.length}
                     rowsPerPage={rowsPerPage}

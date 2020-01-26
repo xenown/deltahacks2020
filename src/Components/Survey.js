@@ -1,5 +1,4 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
 import WorkerForm from './WorkerForm'
 import EnviroForm from './EnviroForm'
 import './Survey.css';
