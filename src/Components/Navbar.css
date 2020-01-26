@@ -7,3 +7,7 @@
     text-emphasis: underline;
     color: white;
 }
+
+.search-button {
+    background-color: white !important;
+}

@@ -13,17 +13,17 @@ class Survey extends React.Component {
         return (
             <div>
                 <div className="survey-header">
-                    Submit an Ethics Survey on {this.props.companySelected}
+                    Submit an Ethics Survey on <span className="comp-name"> {this.props.companySelected} </span>
                 </div>
                 <div className="survey-container">
                     <div className="card">
                         <div className="survey-type">
-                            Survey Type
+                            SURVEY TYPE
             </div>
                         <ul className="nav nav-tabs justify-content-center">
                             <li className="nav-pills"><a className="nav-link" data-toggle="pill" href="#workers">Worker's Rights</a></li>
                             <li className="nav-pills"><a className="nav-link" data-toggle="pill" href="#environment">Environmental Impact</a></li>
-                            <li className="nav-pills"><a className="nav-link" data-toggle="pill" href="#comments">Comments</a></li>
+                            <li className="nav-pills"><a className="nav-link" data-toggle="pill" href="#comments">Comment</a></li>
                         </ul>
                     </div>
 

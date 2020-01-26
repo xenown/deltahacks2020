@@ -9,6 +9,10 @@
     margin: auto
 }
 
+.comp-name {
+    color: #3F52B5
+}
+
 .nav-link {
     background-color: #545b62;
     border-color: #4e555b;
@@ -17,15 +21,20 @@
     border-radius: 3rem !important;
 }
 
+.nav-link.active {
+    background-color: #3F52B5 !important;
+}
+
 .nav-link:hover, .nav-link.active:hover {
     background-color: #0063cc;
     color: white;
 }
 
 .survey-type {
-    font-style: italic;
+    font-family: overpass;
     font-weight: bold;
     font-size: 1.2rem;
+    color: black;
 }
 
 .survey-container {
@@ -42,10 +51,12 @@
     width: 60%; 
     margin: 1.5rem auto;
     padding: 1rem;
-    background-color: #e8f0fe;
+    background-color: white;
 }
 
 .submit-form {
+    border-color: #3F52B5;;
+    background-color: #3F52B5;;
     margin-bottom: 2rem;
     margin-top: 1rem;
 }
