@@ -8,10 +8,9 @@ import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const useStyles = makeStyles(theme => ({
@@ -84,10 +83,6 @@ export default function PrimarySearchAppBar(props) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
@@ -155,16 +150,14 @@ export default function PrimarySearchAppBar(props) {
             </div> : <div />}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Button variant="contained" 
+            <Button variant="contained"
               color="Default"
-              onClick={ () => {props.setSearchbarOpen()}}
               to={"/search"}
               component={Link}>
               Search
             </Button>
-            <Button variant="contained" 
+            <Button variant="contained"
               color="Default"
-              onClick={ () => {props.setSearchbarClose()}}
               to={"/survey"}
               component={Link}>
               Survey

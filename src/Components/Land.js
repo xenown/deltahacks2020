@@ -1,5 +1,4 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
 import "./Land.css";
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from '@material-ui/core';

@@ -1,14 +1,12 @@
-import React from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
+import React, { useEffect } from 'react';
 
-class Survey extends React.Component {
-  render() {
+export default function Survey(props) {
+    useEffect(() => {
+        props.setSearchbar(false);
+    })
     return (
         <div className="Land">
             Survey!
         </div>
     );
-  }
 }
-
-export default Survey;
