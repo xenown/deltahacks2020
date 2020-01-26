@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import { Button } from '@material-ui/core';
+import './Search.css'
 
 
 function desc(a, b, orderBy) {

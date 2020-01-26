@@ -11,6 +11,7 @@ import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Link } from 'react-router-dom'
+import "./Navbar.css"
 
 
 const useStyles = makeStyles(theme => ({
@@ -131,12 +132,12 @@ export default function PrimarySearchAppBar(props) {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <Typography className={classes.title}
+          <Typography className= "navbar-title"
             variant="h6"
             to="/"
             component={Link}
             noWrap>
-            Scrutable!
+            Home
           </Typography>
           {searchbarOpen ?
             <div className={classes.search}>

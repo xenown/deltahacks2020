@@ -41,7 +41,7 @@ const WorkerForm = (props) => {
         <textarea id="comment" className="form-control leave-a-comment"
           name="comment"
           ref={register({
-              required: "Enter your name, or 'anonymous' to remain anonymous"
+              required: "You can't submit an empty comment!"
             }
           )}
         />
