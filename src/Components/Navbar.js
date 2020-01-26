@@ -131,7 +131,11 @@ export default function PrimarySearchAppBar(props) {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title}
+            variant="h6"
+            to="/"
+            component={Link}
+            noWrap>
             Scrutable!
           </Typography>
           {searchbarOpen ?
@@ -151,11 +155,11 @@ export default function PrimarySearchAppBar(props) {
             </div> : <div />}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Button variant="contained"
-              to={"/search"}
+            {!searchbarOpen && <Button variant="contained"
+              to="/search"
               component={Link}>
               Search
-            </Button>
+            </Button>}
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
