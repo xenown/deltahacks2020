@@ -104,6 +104,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Search(props) {
+    const { listings, search, setCompanySelected, setSearchbar } = props;
     const classes = useStyles();
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('score');
@@ -111,9 +112,9 @@ export default function Search(props) {
     const [rowsPerPage, setRowsPerPage] = React.useState(15);
 
     useEffect(() => {
-        props.setSearchbar(true);
+        setSearchbar(true);
         return function cleanup() {
-            props.setSearchbar(false);
+            setSearchbar(false);
         }
     });
 
@@ -124,7 +125,7 @@ export default function Search(props) {
     };
 
     const handleClick = (event, name) => {
-        props.setCompanySelected(name);
+        setCompanySelected(name);
     };
 
     const handleChangePage = (event, newPage) => {
@@ -135,8 +136,6 @@ export default function Search(props) {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
-
-    const isSelected = name => props.companySelected === name;
 
     return (
         <div className={classes.root}>
@@ -154,20 +153,16 @@ export default function Search(props) {
                             onRequestSort={handleRequestSort}
                         />
                         <TableBody>
-                            {stableSort(props.listings, getSorting(order, orderBy))
+                            {stableSort(listings.filter((listing) => (listing.name.toLowerCase().indexOf(search.toLowerCase()) >= 0)), getSorting(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row, index) => {
-                                    const isItemSelected = isSelected(row.name);
-
                                     return (
                                         <TableRow
                                             hover
                                             onClick={event => handleClick(event, row.name)}
                                             role="checkbox"
-                                            aria-checked={isItemSelected}
                                             tabIndex={-1}
                                             key={row.name}
-                                            selected={isItemSelected}
                                             to={`/search/${row.name}`}
                                             component={Link}
                                         >
@@ -187,7 +182,7 @@ export default function Search(props) {
                 <TablePagination
                     rowsPerPageOptions={[10, 15]}
                     component="div"
-                    count={props.listings.length}
+                    count={listings.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onChangePage={handleChangePage}
