@@ -1,12 +1,58 @@
 .main {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../sustainability.jpg");
     background-size: cover;
-    height: 600px;
+    height: 55vh;
     position: relative;
 }
 
 .body{
-    background-color: black;
-    color:white;
+    background-color: white;
+    color:black;
+    height: 30vh !important;
     height: 100%;
+}
+
+.title-header {
+    font-family: archivo black;
+    font-size: 3rem;
+    color: white;
+    margin: auto;
+}
+
+.title-subtext {
+    padding-top: 5rem;
+    font-family: overpass;
+    font-size: 1.2rem;
+    color: white;
+    margin: auto;
+}
+
+.platform-body {
+    font-family: overpass;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    border-bottom: 1px solid #3f51b5;
+    padding-bottom: 0.5rem;
+    width: 20%;
+    margin: 0.5rem auto;
+}
+
+.title-card {
+    margin: 2%;
+    display: inline-block;
+    width: 20%;
+    height: 20vh;
+    border-radius: 20px;
+}
+
+.title-icon {
+    color: #3f51b5;
+    font-size: 50px;
+}
+
+.icon-subtext {
+    font-family: overpass;
+    font-weight: bold;
+    font-size: 1rem;
 }
