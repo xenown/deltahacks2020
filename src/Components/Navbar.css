@@ -1,0 +1,9 @@
+.navbar-title {
+    color: white;
+    font-family: archivo black;
+}
+
+.navbar-title:hover {
+    text-emphasis: underline;
+    color: white;
+}
